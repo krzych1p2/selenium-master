@@ -26,11 +26,11 @@ def load_to_file():
     sheet.append((czas,nazwa_komputer,grupa,uzytkownik,board,procesor,ile_ram,grafika,karta_sieciowa,dysk_ssd))
     wb.save(lokalizacja)
 def wyswietl():
-    print('1:time',czas)
-    print("2:computer_name ",nazwa_komputer)
-    print('3:grup =',grupa)
+    print('1:Time',czas)
+    print("2:Computer_name ",nazwa_komputer)
+    print('3:Grup =',grupa)
     print('4:User =',uzytkownik)
-    print('5:motherboard =',board )
+    print('5:Motherboard =',board )
     print('6:CPU: {0}'.format(procesor))
     print('7:RAM: {0}GB'.format(ile_ram))
     print('8:Graphics Card: {0}'.format(grafika))
@@ -55,8 +55,16 @@ gpu_info = computer.Win32_VideoController()[0]
 grafika =gpu_info.Name
 
 stats = net_if_stats()
+for isup in stats:
+    st = stats[isup]
+    print(st)
 st = stats["Ethernet"]
 karta_sieciowa = ceil(st.speed/1024)
+#print(stats)
+# siec= computer.Win32_NetworkAdapter()[0]
+# siec_gotowa=siec.NetConnectionID
+# print(siec_gotowa)
+
 
 #print(plyta_glowna)
 #os_name = os_info.Name.encode('utf-8').split(b'|')[0]
